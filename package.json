@@ -1,0 +1,29 @@
+{
+  "name": "nasa-mission-control-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "npm install --prefix server",
+    "install-client": "npm install --prefix client",
+    "install": "npm run install-server && npm run install-client",
+    "server": "npm run watch --prefix server",
+    "client": "npm start --prefix client",
+    "watch": "npm run server & npm run client",
+    "server-test": "npm run test --prefix server ",
+    "client-test": "npm run test --prefix client ",
+    "test": "npm run server-test && npm run client-test",
+    "deploy": "npm run build --prefix client && npm start --prefix server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walter708/NASA_Mission_Control_Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/walter708/NASA_Mission_Control_Project/issues"
+  },
+  "homepage": "https://github.com/walter708/NASA_Mission_Control_Project#readme"
+}

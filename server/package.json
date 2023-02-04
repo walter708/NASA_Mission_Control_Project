@@ -1,0 +1,26 @@
+{
+  "name": "nasa_mission_control_api",
+  "version": "1.0.0",
+  "description": "NASA Mission Control API",
+  "main": "src/server.js",
+  "scripts": {
+    "watch": "nodemon src/server.js",
+    "start": "set PORT=5000 && node src/server.js",
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.4.1",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "csv-parse": "^5.3.4",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  }
+}
