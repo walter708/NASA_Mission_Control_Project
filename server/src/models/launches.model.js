@@ -22,7 +22,7 @@ async function getLatestFlightNumber() {
 }
 
 async function fetchLaunch(filter) {
-  launchesCollections.findOne(filter);
+  return await launchesCollections.findOne(filter);
 }
 
 async function exitingLaunchWithId(launchId) {
@@ -79,7 +79,8 @@ async function populateLaunches() {
       customers: customers,
     };
 
-    // console.log(launchDate["flightNumber"], launchDate["mission"]);
+    console.log(launchDate["flightNumber"], launchDate["mission"]);
+    saveLaunch(launchDate);
   }
   console.log("Data from SpaceX API downloaded");
 }
@@ -87,12 +88,12 @@ async function populateLaunches() {
 async function loadLaunchesData() {
   const hasLoadedLaunches = await fetchLaunch({
     flightNumber: 1,
-    name: "FalconSat",
+    mission: "FalconSat",
     rocket: "Falcon 1",
   });
 
   if (hasLoadedLaunches) {
-    console.log("SpaceX launches already laoded");
+    console.log("SpaceX launches already loaded");
     return;
   } else {
     await populateLaunches();
@@ -111,9 +112,13 @@ async function saveLaunch(launch) {
   );
 }
 
-async function getAllLaunches() {
+async function getAllLaunches(skip, limit) {
   try {
-    return await launchesCollections.find({}, { _id: 0, __v: 0 });
+    return await launchesCollections
+      .find({}, { _id: 0, __v: 0 })
+      .sort({ flightNumber: 1 })
+      .skip(skip)
+      .limit(limit);
   } catch (err) {
     console.log(err);
   }
