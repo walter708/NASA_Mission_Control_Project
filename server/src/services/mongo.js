@@ -14,7 +14,11 @@ mongoose.set("strictQuery", false);
 async function mongoConnect() {
   mongoose.connect(MONGO_URL);
 }
+async function mongoDisconnect() {
+  mongoose.disconnect();
+}
 
 module.exports = {
   mongoConnect,
+  mongoDisconnect,
 };
