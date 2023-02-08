@@ -1,4 +1,4 @@
-const BASE_API_URL = "http://localhost:3001/v1";
+const BASE_API_URL = "v1";
 async function httpGetPlanets() {
   // Load planets and return as JSON.
   const response = await fetch(`${BASE_API_URL}/planets`);
