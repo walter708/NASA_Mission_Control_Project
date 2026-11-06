@@ -1,14 +1,17 @@
 const request = require("supertest");
+const mongoose = require("mongoose");
 const app = require("../../app");
 const { mongoConnect, mongoDisconnect } = require("../../services/mongo");
 const { loadPlanets } = require("../../models/planets.model");
 describe("Test Launch API", () => {
   beforeAll(async () => {
     await mongoConnect();
+    await mongoose.connection.dropDatabase();
     await loadPlanets();
   });
 
   afterAll(async () => {
+    await mongoose.connection.dropDatabase();
     await mongoDisconnect();
   });
 

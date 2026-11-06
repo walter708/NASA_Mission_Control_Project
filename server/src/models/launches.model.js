@@ -86,6 +86,21 @@ async function populateLaunches() {
 }
 
 async function loadLaunchesData() {
+  const source = process.env.LAUNCH_DATA_SOURCE || "fixture";
+  if (source === "fixture") {
+    const fixtures = require("../../data/launches.example.json");
+    for (const launch of fixtures) {
+      if (!(await fetchLaunch({ flightNumber: launch.flightNumber }))) {
+        await saveLaunch(launch);
+      }
+    }
+    console.log("Loaded disposable example launches (no SpaceX request)");
+    return;
+  }
+  if (source !== "spacex") throw new Error("LAUNCH_DATA_SOURCE must be fixture or spacex");
+  if (process.env.EVALUATION_MODE === "true" || process.env.NODE_ENV === "test") {
+    throw new Error("Live SpaceX imports are disabled during evaluation and tests");
+  }
   const hasLoadedLaunches = await fetchLaunch({
     flightNumber: 1,
     mission: "FalconSat",

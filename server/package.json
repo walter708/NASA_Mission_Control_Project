@@ -13,7 +13,8 @@
   "keywords": [],
   "author": "",
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "setupFiles": ["<rootDir>/test/environment.js"]
   },
   "license": "ISC",
   "devDependencies": {

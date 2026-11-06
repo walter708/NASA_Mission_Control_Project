@@ -1,0 +1,30 @@
+[
+  {
+    "flightNumber": 1,
+    "mission": "Example completed mission",
+    "rocket": "Demo Rocket",
+    "launchDate": "2020-01-01T00:00:00.000Z",
+    "customers": ["Evaluation"],
+    "upcoming": false,
+    "success": true
+  },
+  {
+    "flightNumber": 2,
+    "mission": "Example aborted mission",
+    "rocket": "Demo Rocket",
+    "launchDate": "2020-02-01T00:00:00.000Z",
+    "customers": ["Evaluation"],
+    "upcoming": false,
+    "success": false
+  },
+  {
+    "flightNumber": 3,
+    "mission": "Example upcoming mission",
+    "rocket": "Demo Rocket",
+    "launchDate": "2035-01-01T00:00:00.000Z",
+    "target": "Kepler-1649 b",
+    "customers": ["Evaluation"],
+    "upcoming": true,
+    "success": true
+  }
+]

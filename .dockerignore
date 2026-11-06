@@ -1,5 +1,8 @@
-.git 
+.git
 
 */node_modules
 
-server/public 
+server/public
+**/.env
+**/.env.*
+!**/.env.example
