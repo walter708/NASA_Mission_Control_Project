@@ -57,6 +57,7 @@ jobs:
           (cd server && exec node src/server.js) &
           server_pid=$!
           node server/test/smoke-evaluation.js
+          node server/test/reproduce-abort.js
           echo '### Disposable evaluation passed' >> "$GITHUB_STEP_SUMMARY"
           echo 'API tests and application startup passed with external network blocked. MongoDB uses ephemeral storage and is destroyed with the runner.' >> "$GITHUB_STEP_SUMMARY"
 
